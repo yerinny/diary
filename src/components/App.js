@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {database} from '../firebase';
 import _ from 'lodash';
+import {connect} from 'react-redux'
+import {getNotes, saveNotes} from '../actions/notesActions';
 
 
 class App extends Component {
@@ -99,4 +101,10 @@ class App extends Component {
   }
 }
 
-export default App;
+mapStateToProps(state, ownProps){
+  return {
+    notes: state.notes
+  };
+}
+
+export default connect(mapStateToProps, {getNotes, saveNotes})(App);
