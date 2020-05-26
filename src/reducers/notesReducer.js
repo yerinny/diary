@@ -1,9 +1,11 @@
 import {GET_NOTES} from '../actionTypes';
 
-export default function(state={}, action){
+//export the function based up on actionType
+
+export default function(state= {}, action){
     switch(action.type){
         case GET_NOTES:
-            return action.paylod; 
+            return action.payload;
         default:
             return state;
     }
