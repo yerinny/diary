@@ -6,12 +6,14 @@ import * as serviceWorker from './serviceWorker';
 //redux
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import rootReducer from './reducers/index';
 
 //create redux store -> reducers -> 'actions -> actionType' | applyMiddleware()
+//in order for actions to be async we need applyMiddleware
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 //provide the store to react
 
