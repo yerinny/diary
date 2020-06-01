@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {database} from '../firebase';
 import _ from 'lodash';
 import {connect} from 'react-redux'
-import {getNotes, saveNote} from '../actions/notesActions';
+import {getNotes, saveNote, deleteNote} from '../actions/notesActions';
 
 
 class App extends Component {
@@ -11,8 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
         title: '',
-        body: '',
-        notes: {}
+        body: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,6 +52,11 @@ class App extends Component {
           <div key={key}>
               <h2>{note.title}</h2>
               <p>{note.body}</p>
+              <button 
+                className="btn btn-danger btn-xs" 
+                onClick={()=>this.props.deleteNote(key)}>
+                  delete
+              </button>
           </div>
         )
     });
@@ -113,4 +116,4 @@ function mapStateToProps(state, ownProps){
 
 //mapping from the redux...{dispatching to the redux}
 
-export default connect(mapStateToProps, {getNotes, saveNote})(App);
+export default connect(mapStateToProps, {getNotes, saveNote, deleteNote})(App);
