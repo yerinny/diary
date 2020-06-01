@@ -30,6 +30,11 @@ const Header = () => (
                 <Link className="navbar-brand" to="/">DIARY2020</Link>
 
             </div>
+            <div className="collapse navbar-collapse" id="myNavbar">
+               <ul className="nav navbar-nav navbar-right">
+                 <li><Link to="/login">Login</Link></li>
+               </ul>
+            </div>
         </div>
     </nav>
 );
@@ -41,10 +46,11 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-         <Switch>
+        <Header />
+        <Switch>
            <Route path="/" component={App} exact={true} />
            <Route path="/login" component={Login} exact={true} />
-         </Switch>
+        </Switch>
       </div>
     </BrowserRouter>
   </Provider>,
