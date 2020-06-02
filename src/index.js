@@ -12,6 +12,8 @@ import rootReducer from './reducers/index';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Login from './components/Login';
 import Header from './routes/Header';
+import Loading from './components/Loading';
+import Authentication from './components/Authentication';
 
 //create redux store -> reducers -> 'actions -> actionType' | applyMiddleware()
 //in order for actions to be async we need applyMiddleware
@@ -23,13 +25,17 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <div>
-        <Header />
-        <Switch>
-           <Route path="/" component={App} exact={true} />
-           <Route path="/login" component={Login} exact={true} />
-        </Switch>
-      </div>
+      <Loading>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/login" component={Login} exact={true} />
+            <Authentication>
+                <Route path="/" component={App} exact={true} />
+            </Authentication>
+          </Switch>
+        </div>
+      </Loading>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
