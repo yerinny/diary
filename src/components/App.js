@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import {connect} from 'react-redux'
 import {getNotes, saveNote, deleteNote} from '../actions/notesActions';
-import NoteCard from './NoteCard'
+import NoteCard from './NoteCard';
+import {getUser} from '../actions/userAction';
 
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
   componentDidMount(){
     //getting the function from redux-store as a prop
     this.props.getNotes();
+    this.props.getUser();
   }
 
  // handle change
@@ -106,7 +108,8 @@ class App extends Component {
 //*mapping the property from the state
 function mapStateToProps(state, ownProps){
   return {
-    notes: state.notes
+    notes: state.notes,
+    user: state.user
   }
 }
 
@@ -117,4 +120,4 @@ function mapStateToProps(state, ownProps){
 
 //mapping from the redux...{dispatching to the redux}
 
-export default connect(mapStateToProps, {getNotes, saveNote, deleteNote})(App);
+export default connect(mapStateToProps, {getNotes, saveNote, deleteNote, getUser})(App);
