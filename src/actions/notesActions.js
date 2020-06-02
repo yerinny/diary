@@ -23,7 +23,7 @@ export function getNotes(){
                 payload: false
             });
             //wait until something changes and try again
-        }, {
+        },() => {
             dispatch({
                 type: NOTES_STATUS,
                 payload: -1
