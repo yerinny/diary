@@ -11,34 +11,12 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import rootReducer from './reducers/index';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Login from './components/Login';
+import Header from './routes/Header';
 
 //create redux store -> reducers -> 'actions -> actionType' | applyMiddleware()
 //in order for actions to be async we need applyMiddleware
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-
-const Header = () => (
-    <nav className="navbar navbar-default">
-        <div className="container-fluid">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-              </button>
-
-                <Link className="navbar-brand" to="/">DIARY2020</Link>
-
-            </div>
-            <div className="collapse navbar-collapse" id="myNavbar">
-               <ul className="nav navbar-nav navbar-right">
-                 <li><Link to="/login">Login</Link></li>
-               </ul>
-            </div>
-        </div>
-    </nav>
-);
-
 
 //provide the store to react
 
