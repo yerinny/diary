@@ -20,11 +20,11 @@ class App extends Component {
   }
 
   //lifecycle
-  componentDidMount(){
-    //getting the function from redux-store as a prop
-    this.props.getNotes();
-    this.props.getUser();
-  }
+  // componentDidMount(){
+  //   //getting the function from redux-store as a prop
+  //   this.props.getNotes();
+  //   this.props.getUser();
+  // }
 
  // handle change
   handleChange(e){
@@ -60,6 +60,7 @@ class App extends Component {
                 onClick={()=>this.props.deleteNote(key)}>
                   delete
               </button>
+
           </NoteCard>
         )
     });
@@ -97,6 +98,9 @@ class App extends Component {
                     <button className="btn btn-primary col-sm-12">Save</button>
                   </div>
                 </form>
+                <br/>
+                <br/>
+                <br/>
                 {this.renderNotes()}
               </div>
           </div>
