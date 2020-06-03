@@ -4,10 +4,8 @@ import {googleLogin, twitterLogin} from '../actions/userAction';
 
 class Login extends Component {
 
-
     componentWillMount() {
         if (this.props.user !== null) {
-            // console.log(this.props.history);
             this.props.history.push('/');
         }
     }
@@ -21,12 +19,12 @@ class Login extends Component {
     render(){
         return (
             <div className="container-fluid">
-                <div className="row text-center">
+                <div className="row">
                     <div className="col-sm-12 jumbotron" style={{ marginTop: '-20px;'}}>
                         <h1>Login with your favortie <b>Social Network</b> 
                         </h1>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-sm-6 text-center">
                         <button className="btn btn-danger btn-lg" onClick={this.props.googleLogin}>
                             Login with Google
                         </button>
@@ -43,5 +41,11 @@ class Login extends Component {
     }
 }
 
+function mapStateToProps(state, onwProps) {
+    return {
+        user: state.user
+    };
+}
 
-export default connect(null, {googleLogin, twitterLogin})(Login);
+
+export default connect(mapStateToProps, {googleLogin, twitterLogin})(Login);
