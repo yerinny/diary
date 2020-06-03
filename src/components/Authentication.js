@@ -4,22 +4,20 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 class Authentication extends Component {
-    componentDidUpdate(){
-        //make sure the loading is done then if no user 
-        //then push them to login page
-
+    componentDidUpdate() {
+        // make sure the loading is done then if no user
+        // then push them to login page
         const { userLoading, user } = this.props;
-        if (userLoading === false && !user ) {
-            this.props.history.push('/login')
+        if (userLoading === false && !user) {
+            this.props.history.push('/login');
         }
     }
 
-    render(){
-        const {user, userLoading, children} = this.props;
-        return (userLoading === false && user) ? <div>{children}</div> : null;
+    render() {
+        const { user, userLoading, children } = this.props;
+        return userLoading === false && user ? <div>{children}</div> : null;
     }
 }
-
 
 function mapStateToProps(state) {
     return {
