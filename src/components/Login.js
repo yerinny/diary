@@ -3,6 +3,21 @@ import { connect } from 'react-redux';
 import {googleLogin, twitterLogin} from '../actions/userAction';
 
 class Login extends Component {
+
+
+    componentWillMount() {
+        if (this.props.user !== null) {
+            // console.log(this.props.history);
+            this.props.history.push('/');
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.user !== null) {
+            nextProps.history.push('/');
+        }
+    }
+
     render(){
         return (
             <div className="container-fluid">
