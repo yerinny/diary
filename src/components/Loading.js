@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { getUser } from '../actions/userAction';
 import { getNotes } from '../actions/notesActions';
 
-
 class Loading extends Component {
     componentWillMount() {
         const { userLoading, notesLoading } = this.props;
