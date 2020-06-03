@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// with withRouter you can get access to the history object's property
+// with withRouter You can get access to the history object’s properties
 import { withRouter } from 'react-router-dom';
 
 class Authentication extends Component {
@@ -21,9 +21,9 @@ class Authentication extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user,
-        userLoading: state.loading.user
-    }
+        userLoading: state.loading.user,
+        user: state.user
+    };
 }
 
 export default withRouter(connect(mapStateToProps)(Authentication));
