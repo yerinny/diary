@@ -19,11 +19,14 @@ class Login extends Component {
     render(){
         return (
             <div className="container-fluid">
-                <div className="row">
+                <div className="row text-center">
                     <div className="col-sm-12 jumbotron" style={{ marginTop: '-20px;'}}>
                         <h1>
-                            DIARY | { new Date().getFullYear() } Login with your favortie <b>Social Network</b> 
+                            DIARY - { new Date().getFullYear() } 
                         </h1>
+                        <h2>
+                            <i>Login with your favortie <b>Social Network</b> </i>
+                        </h2>
                     </div>
                     <div className="col-sm-6 text-center">
                         <button className="btn btn-danger btn-lg" onClick={this.props.googleLogin}>
@@ -31,7 +34,7 @@ class Login extends Component {
                         </button>
                     </div>
                         <br/>
-                    <div className="col-sm-6">
+                    <div className="col-sm-6 text-center">
                         <button className="btn btn-success btn-lg" onClick={this.props.twitterLogin}>
                             Login with Twitter
                         </button>
