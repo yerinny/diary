@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Header from './routes/Header';
 import Loading from './components/Loading';
 import Authentication from './components/Authentication';
+import NoteDetail from './components/NoteDetail';
 
 //create redux store -> reducers -> 'actions -> actionType' | applyMiddleware()
 //in order for actions to be async we need applyMiddleware
@@ -31,6 +32,7 @@ ReactDOM.render(
                       <Authentication>
                           <Header />
                           <Route path="/" component={App} exact={true} />
+                          <Route path="/:id" component={NoteDetail} exact={true} />
                       </Authentication>
                   </Switch>
               </div>
