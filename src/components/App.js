@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getNotes, saveNote, deleteNote } from '../actions/notesActions';
 import NoteCard from './NoteCard';
 import { getUser } from '../actions/userAction';
+import { Link } from 'react-router-dom';
+
 
 class App extends Component {
     constructor(props) {
@@ -31,7 +33,8 @@ class App extends Component {
         e.preventDefault();
         const note = {
             title: this.state.title,
-            body: this.state.body
+            body: this.state.body,
+            uid: this.props.user.uid
         };
         this.props.saveNote(note);
         this.setState({
@@ -41,15 +44,19 @@ class App extends Component {
     }
 
     // render notes
+    //if the user id that's logged in is same as who wrote the diary id then u can delete it
     renderNotes() {
         return _.map(this.props.notes, (note, key) => {
             return (
                 <NoteCard key={key}>
+                    <Link to={`/${key}`}>
                     <h2>{note.title}</h2>
+                    </Link>
                     <p>{note.body}</p>
-                    <button className="btn btn-danger btn-xs" onClick={() => this.props.deleteNote(key)}>
+                    {note.uid === this.props.user.uid && 
+                    (<button className="btn btn-danger btn-xs" onClick={() => this.props.deleteNote(key)}>
                         Delete
-                    </button>
+                    </button>) }
                 </NoteCard>
             );
         });
