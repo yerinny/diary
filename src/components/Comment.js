@@ -11,7 +11,7 @@ class Comment extends Component {
                             type="text"
                             name="commentBody"
                             className="form-control no-border"
-                            placeholder="Write Comment..." 
+                            placeholder="Write Comment..."  
                             required
                         />
                     </div>
