@@ -6,7 +6,6 @@ import NoteCard from './NoteCard';
 import { getUser } from '../actions/userAction';
 import { Link } from 'react-router-dom';
 
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -44,25 +43,23 @@ class App extends Component {
     }
 
     // render notes
-    //if the user id that's logged in is same as who wrote the diary id then u can delete it
     renderNotes() {
         return _.map(this.props.notes, (note, key) => {
             return (
                 <NoteCard key={key}>
                     <Link to={`/${key}`}>
-                    <h2>{note.title}</h2>
+                        <h2>{note.title}</h2>
                     </Link>
                     <p>{note.body}</p>
-                    {note.uid === this.props.user.uid && 
-                    (
-                    <div>
-                        <button className="btn btn-danger btn-xs" onClick={() => this.props.deleteNote(key)}>
-                        Delete
-                        </button>
-                        <button className="btn btn-info btn-xs pull-right">
+                    {note.uid === this.props.user.uid && (
+                        <div>
+                            <button className="btn btn-danger btn-xs" onClick={() => this.props.deleteNote(key)}>
+                                Delete
+                            </button>
+                            <button className="btn btn-info btn-xs pull-right">
                                 <Link to={`/${key}/edit`}>Update</Link>
-                        </button>
-                    </div>
+                            </button>
+                        </div>
                     )}
                 </NoteCard>
             );
@@ -73,7 +70,17 @@ class App extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-sm-6 col-sm-offset-3">
+                    <div className="col-sm-2 text-center">
+                        <img
+                            src={this.props.user.photoURL}
+                            height="100px"
+                            className="img img-responsive circle"
+                            style={{ padding: '20px' }}
+                        />
+                        <h4 className="username">Welcome back!</h4> 
+                        <h4>{this.props.user.displayName}</h4>
+                    </div>
+                    <div className="col-sm-10">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <input
