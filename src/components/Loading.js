@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getUser } from '../actions/userAction';
 import { getNotes } from '../actions/notesActions';
+import SimpleLoading from '../components/SimpleLoading';
 
 class Loading extends Component {
     componentWillMount() {
@@ -40,9 +41,9 @@ class Loading extends Component {
             return <div>{children}</div>;
         } else {
             return (
-                <div>
-                    <h2>Loading...</h2>
-                </div>
+
+                    <SimpleLoading />
+
             );
         }
     }
