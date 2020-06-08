@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { googleLogin, twitterLogin } from "../actions/userAction";
+import { googleLogin, twitterLogin, facebookLogin } from "../actions/userAction";
 import { Link } from 'react-router-dom';
 import '../styles/login.css';
 
@@ -22,9 +22,13 @@ class Login extends Component {
         return (
 
         <div className="container bg">
+
+            <div>
+                <span className="brand">ThinkCreative</span>
+            </div>
             <div className="row">
-                <div className="d-flex justify-content-center h-200">
-                    <div className="card center">
+                <div className="d-flex justify-content-center h-100">
+                    <div className="card">
                         <div className="card-header">
                             < br />
                                 <h3>Sign in with your favorite Social Media to start writing</h3>
@@ -48,6 +52,12 @@ class Login extends Component {
                                         </button>
                                         <br />
                                         <br />
+                                        <button 
+                                            className="btn btn-primary col-sm-10 social" 
+                                            onClick={this.props.facebookLogin}
+                                        >
+                                            Login with Facebook
+                                        </button>
                                         <br />
                                         <br />
                                         <br />
@@ -58,7 +68,7 @@ class Login extends Component {
                                         <h6>
                                             There is no sign-up, simply log-in with your existing account like Google, Twitter, or Facebook! Simple as just a click.
                                         </h6>
-                                        <Link to=""> FAQ </Link>
+                                        <Link to="/FAQ"> FAQ </Link>
 
                                     </div>
                                 </div>
@@ -80,5 +90,5 @@ function mapStateToProps(state, onwProps) {
 
 export default connect(
     mapStateToProps,
-    { googleLogin, twitterLogin }
+    { googleLogin, twitterLogin, facebookLogin }
 )(Login);
