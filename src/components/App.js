@@ -79,6 +79,10 @@ class App extends Component {
                         />
                         <h4 className="username">Welcome back!</h4> 
                         <h4>{this.props.user.displayName}</h4>
+                        <br />
+                        <h5>
+                            TIP! Click on the title to post comments.
+                        </h5>
                     </div>
                     <div className="col-sm-10">
                         <form onSubmit={this.handleSubmit}>
