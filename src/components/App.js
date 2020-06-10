@@ -33,6 +33,7 @@ class App extends Component {
         const note = {
             title: this.state.title,
             body: this.state.body,
+            time: Date(),
             uid: this.props.user.uid
         };
         this.props.saveNote(note);
@@ -44,6 +45,7 @@ class App extends Component {
 
     // render notes
     renderNotes() {
+        console.log('here', this.props.notes)
         return _.map(this.props.notes, (note, key) => {
             return (
                 <NoteCard key={key}>
@@ -53,7 +55,7 @@ class App extends Component {
                     <p>{note.body}</p>
                     {note.uid === this.props.user.uid && (
                         <div>
-                            <button className="btn btn-danger btn-xs" onClick={() => this.props.deleteNote(key)}>
+                            <button className="btn btn-danger btn-xs pull-right" onClick={() => this.props.deleteNote(key)}>
                                 Delete
                             </button>
                             <button className="btn btn-info btn-xs pull-right">
@@ -61,6 +63,9 @@ class App extends Component {
                             </button>
                         </div>
                     )}
+                    <br />
+                    <br />
+                     <span className="pull-right">Created: {note.time}</span>
                 </NoteCard>
             );
         });
@@ -68,23 +73,22 @@ class App extends Component {
 
     render() {
         return (
+            //User Profile
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-sm-2 text-center">
+                    <div className="profile col-sm-2">
                         <img
                             src={this.props.user.photoURL}
-                            height="100px"
-                            className="img img-responsive circle"
-                            style={{ padding: '20px' }}
+                            className="rounded-circle"
                         />
-                        <h4 className="username">Welcome back!</h4> 
+                        <h4>Welcome back!</h4>
                         <h4>{this.props.user.displayName}</h4>
-                        <br />
                         <h5>
                             TIP! Click on the title to post comments.
                         </h5>
                     </div>
-                    <div className="col-sm-10">
+
+                    <div className="col-sm-2 formInfo">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <input
@@ -97,7 +101,6 @@ class App extends Component {
                                     required
                                 />
                             </div>
-
                             <div className="form-group">
                                 <textarea
                                     onChange={this.handleChange}
@@ -109,16 +112,15 @@ class App extends Component {
                                     required
                                 />
                             </div>
-
                             <div className="form-group">
                                 <button className="btn btn-primary col-sm-12">Save</button>
                             </div>
                         </form>
-                        <br />
-                        <br />
-                        <br />
+                    </div>
+                    <div className="col-sm-6" >
                         {this.renderNotes()}
                     </div>
+
                 </div>
             </div>
         );
