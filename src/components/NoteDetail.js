@@ -18,6 +18,7 @@ class NoteDetail extends Component {
 
     render(){
         const { note } = this.props;
+        console.log(note);
         return (
             <div className="container-fluid">
                 <div className="row">
