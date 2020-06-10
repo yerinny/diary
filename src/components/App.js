@@ -58,7 +58,7 @@ class App extends Component {
                             <button className="btn btn-danger btn-xs pull-right" onClick={() => this.props.deleteNote(key)}>
                                 Delete
                             </button>
-                            <button className="btn btn-info btn-xs pull-right">
+                            <button className="btn btn-success btn-xs pull-right">
                                 <Link to={`/${key}/edit`}>Update</Link>
                             </button>
                         </div>
@@ -115,7 +115,7 @@ class App extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="col-sm-7" >
+                    <div className="col-sm-6" >
                         {this.renderNotes()}
                     </div>
 
