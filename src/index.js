@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import rootReducer from './reducers/index';
-import {BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import Header from './routes/Header';
 import Loading from './components/Loading';
