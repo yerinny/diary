@@ -79,7 +79,6 @@ class App extends Component {
                     <div className="profile col-sm-2">
                         <img
                             src={this.props.user.photoURL}
-                            className="rounded-circle"
                         />
                         <h4>Welcome back!</h4>
                         <h4>{this.props.user.displayName}</h4>
@@ -87,7 +86,6 @@ class App extends Component {
                             TIP! Click on the title to post comments.
                         </h5>
                     </div>
-
                     <div className="col-sm-2 formInfo">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
@@ -108,16 +106,16 @@ class App extends Component {
                                     type="text"
                                     name="body"
                                     className="form-control no-border"
-                                    placeholder="Body..."
+                                    placeholder="Post your thoughts here..."
                                     required
                                 />
                             </div>
                             <div className="form-group">
-                                <button className="btn btn-primary col-sm-12">Save</button>
+                                <button className="btn btn-primary col-sm-6 pull-right">Post</button>
                             </div>
                         </form>
                     </div>
-                    <div className="col-sm-6" >
+                    <div className="col-sm-7" >
                         {this.renderNotes()}
                     </div>
 
