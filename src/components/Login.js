@@ -20,64 +20,33 @@ class Login extends Component {
 
     render() {
         return (
+            <div className="container bg">
+                <div class="card">
+                    <h5 class="card-header">Sign in with your favorite Social Media to start writing</h5>
+                        <div class="card-body">
+                                <button
+                                    className="btn btn-danger col-sm-10 social"
+                                    onClick={this.props.googleLogin}
+                                >
+                                    Login with Google
+                                </button>
 
-        <div className="container bg">
+                                <button 
+                                    className="btn btn-info col-sm-10 social" 
+                                    onClick={this.props.twitterLogin}
+                                >
+                                    Login with Twitter
+                                </button>
 
-            <div>
-                <span className="brand">ThinkCreative</span>
-            </div>
-            <div className="row">
-                <div className="d-flex justify-content-center h-100">
-                    <div className="card">
-                        <div className="card-header">
-                            < br />
-                                <h3>Sign in with your favorite Social Media to start writing</h3>
-                            < br />
-                                <div className="card-body">
-                                    <div className="row">
-                                    <div className="col-sm-12 text-center">
-                                        <button
-                                            className="btn btn-danger col-sm-10 social"
-                                            onClick={this.props.googleLogin}
-                                        >
-                                            Login with Google
-                                        </button>
-                                        <br />
-                                        <br />
-                                        <button 
-                                            className="btn btn-info col-sm-10 social" 
-                                            onClick={this.props.twitterLogin}
-                                        >
-                                            Login with Twitter
-                                        </button>
-                                        <br />
-                                        <br />
-                                        <button 
-                                            className="btn btn-primary col-sm-10 social" 
-                                            onClick={this.props.facebookLogin}
-                                        >
-                                            Login with Facebook
-                                        </button>
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <h6>
-                                            ThinkCreative is a page where you can post your creative mind and get insight of other people's opinion to either contribute, suggest, or add-on.
-                                        </h6>
-                                        <h6>
-                                            There is no sign-up, simply log-in with your existing account like Google, Twitter, or Facebook! Simple as just a click.
-                                        </h6>
-                                        <Link to="/FAQ"> FAQ </Link>
-
-                                    </div>
-                                </div>
-                            </div>
+                                <button 
+                                    className="btn btn-primary col-sm-10 social" 
+                                    onClick={this.props.facebookLogin}
+                                >
+                                    Login with Facebook
+                                </button>
                         </div>
-                    </div>
                 </div>
-             </div>
-         </div>
+            </div>
         )
     }
 }   
