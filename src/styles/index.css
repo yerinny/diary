@@ -7,7 +7,7 @@
   padding: 5px;
   border: 1px solid black;
   background-color: white;
-  margin-left: 70px;
+  margin-left: 150px;
   color: black;
   display: inline-block;
 }
@@ -45,6 +45,10 @@ img {
 
 .btn .btn-info {
   text-decoration: none;
+}
+
+.formInfo {
+  margin-left: 50px;
 }
 
 @media only screen and (max-width: 768px) {
