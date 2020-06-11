@@ -3,7 +3,7 @@
 }
 
 .jumbotron {
-  border-radius: none !important;
+  border-radius: 2px !important;
   padding: 5px;
   border: 1px solid black;
   background-color: white;
