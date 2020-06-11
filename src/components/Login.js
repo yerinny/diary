@@ -22,7 +22,8 @@ class Login extends Component {
         return (
             <div className="container bg">
                 <div class="card">
-                    <h5 class="card-header">Sign in with your favorite Social Media to start writing</h5>
+                    <div class="card-header">Sign in with your favorite Social Media to start writing
+                    </div>
                         <div class="card-body">
                                 <button
                                     className="btn btn-danger col-sm-10 social"
@@ -45,6 +46,10 @@ class Login extends Component {
                                     Login with Facebook
                                 </button>
                         </div>
+                        <div className="card-footer">
+                            sadfasdfasdf
+                        </div>
+                        
                 </div>
             </div>
         )
