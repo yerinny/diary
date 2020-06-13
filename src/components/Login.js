@@ -47,7 +47,13 @@ class Login extends Component {
                                 </button>
                         </div>
                         <div className="card-footer">
-                            sadfasdfasdf
+                            <div>
+                                ThinkCreative is a page where you can post your creative mind and get insight of other people's opinion to either contribute, suggest, or add-on
+                            </div>
+                            <br />
+                            <div>
+                                There is no sign-up, simply log-in with your exisiting account like Google, Twitter, or Facebook! Simple as just a click.
+                            </div>
                         </div>
                         
                 </div>
