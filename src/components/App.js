@@ -5,6 +5,8 @@ import { getNotes, saveNote, deleteNote } from '../actions/notesActions';
 import NoteCard from './NoteCard';
 import { getUser } from '../actions/userAction';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+
 
 class App extends Component {
     constructor(props) {
@@ -65,7 +67,7 @@ class App extends Component {
                     )}
                     <br />
                     <br />
-                     <span className="pull-right">Created: {note.time}</span>
+                     <span className="pull-right">Created: {moment(note.time).format('MMMM Do YYYY, h:mm:ss a')}</span>
                 </NoteCard>
             );
         });
