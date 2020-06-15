@@ -5,6 +5,7 @@ import Comment from './Comment';
 import _ from 'lodash';
 import Commenting from '../components/Commenting';
 
+//this is the commenting page
 
 class NoteDetail extends Component {
 
