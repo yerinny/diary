@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveComment } from '../actions/notesActions'
 
+
+//adding comments 
+
 class Comment extends Component {
 
     constructor(props) {
