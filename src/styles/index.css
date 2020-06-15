@@ -62,13 +62,13 @@ img {
   }
 
   .formInfo {
-    margin-left: 50px;
-    margin-bottom: 20px;
+    margin-left: 20vw;
+    margin-bottom: 4vh;
   }
 
   .jumbotron {
-
     margin: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 2vh;
+    margin-left: 10vw;
   }
 }
