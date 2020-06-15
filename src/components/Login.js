@@ -4,6 +4,8 @@ import { googleLogin, twitterLogin, facebookLogin } from "../actions/userAction"
 import { Link } from 'react-router-dom';
 import '../styles/login.css';
 
+//login page
+
 class Login extends Component {
     componentWillMount() {
         if (this.props.user !== null) {
@@ -55,6 +57,8 @@ class Login extends Component {
                                 There is no sign-up, simply log-in with your exisiting account like Google, Twitter, or Facebook! Simple as just a click.
                             </div>
                         </div>
+
+                        <Link to="/faq">FAQ</Link>
                         
                 </div>
             </div>
