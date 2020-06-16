@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Faq extends Component {
     render() {
       return (
-        <div class="container">
+        <div class="container faq">
     <br />
 
     <div class="alert alert-warning alert-dismissible" role="alert">
