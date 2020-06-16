@@ -30,15 +30,19 @@ ReactDOM.render(
           <Loading>
               <div>
                   <Switch>
+                      
                       <Route path="/login" component={Login} exact={true} />
                       <Redirect from="/logout" to="/login" />
+                      <Route path="/faq" component={Faq} exact={true} />
+                     
                       <Authentication>
                           <Header />
                           <Route path="/:id/edit" component={NoteEdit} exact={true} />
                           <Route path="/:id" component={NoteDetail} exact={true} />
                           <Route path="/" component={App} exact={true} />
-                          <Route path="/faq" component={Faq} exact={true} />
+                          
                       </Authentication>
+                     
                   </Switch>
               </div>
           </Loading>
