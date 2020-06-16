@@ -7,7 +7,6 @@ import { getUser } from '../actions/userAction';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -47,21 +46,47 @@ class App extends Component {
 
     // render notes
     renderNotes() {
+        //[{note1}, {note2}]
         console.log('here', this.props.notes)
-        return _.map(this.props.notes, (note, key) => {
+        let notes = []
+
+        let keys = Object.keys(this.props.notes)
+        for (let i of keys) {
+            console.log(typeof this.props.notes[i].time)
+            let aNote = this.props.notes[i]
+            aNote.key = i
+            notes.push(aNote)
+        }
+        
+        notes.map((note) => {
+
+            note.jsTime = moment(note.time).toDate()
+
+        })
+        console.log(typeof notes[0].jsTime);
+        console.log(notes[0].jsTime)
+        notes.sort((a, b) => {
+
+            if (a.jsTime < b.jsTime)
+                return 1
+            if (a.jsTime > b.jsTime)
+                return -1
+        })
+        console.log(notes);
+        return _.map(notes, (note) => {
             return (
-                <NoteCard key={key}>
-                    <Link to={`/${key}`}>
+                <NoteCard key={note.key}>
+                    <Link to={`/${note.key}`}>
                         <h2>{note.title}</h2>
                     </Link>
                     <p>{note.body}</p>
                     {note.uid === this.props.user.uid && (
                         <div>
-                            <button className="btn btn-danger btn-xs pull-right" onClick={() => this.props.deleteNote(key)}>
+                            <button className="btn btn-danger btn-xs pull-right" onClick={() => this.props.deleteNote(note.key)}>
                                 Delete
                             </button>
                             <button className="btn btn-success btn-xs pull-right">
-                                <Link to={`/${key}/edit`}>Update</Link>
+                                <Link to={`/${note.key}/edit`}>Update</Link>
                             </button>
                         </div>
                     )}
@@ -120,7 +145,6 @@ class App extends Component {
                     <div className="col-sm-6" >
                         {this.renderNotes()}
                     </div>
-
                 </div>
             </div>
         );
