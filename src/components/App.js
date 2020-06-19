@@ -99,6 +99,28 @@ class App extends Component {
     }
 
     render() {
+
+        const date = new Date();
+        const currentTime = date.getHours();
+
+        let greeting;
+
+        const customStyle = {
+            color: ""
+        }
+
+        if (currentTime < 12) {
+            greeting = "Good Morning!";
+            customStyle.color = "yellow";
+        } else if (currentTime < 18) {
+            greeting = "Good Afternoon!";
+            customStyle.color = "orange";
+        } else {
+            greeting = "Good Evening!";
+            customStyle.color = "darkblue";
+        }
+
+        console.log('here', greeting, customStyle, currentTime)
         return (
             //User Profile
             <div className="container-fluid">
@@ -107,7 +129,7 @@ class App extends Component {
                         <img
                             src={this.props.user.photoURL}
                         />
-                        <h4>Welcome back!</h4>
+                        <h4 style={customStyle}>{greeting}</h4>
                         <h4>{this.props.user.displayName}</h4>
                         <h5>
                             TIP! Click on the title to post comments.
