@@ -6,6 +6,8 @@ import NoteCard from './NoteCard';
 import { getUser } from '../actions/userAction';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { database } from '../firebase';
+
 
 class App extends Component {
     constructor(props) {
@@ -34,7 +36,7 @@ class App extends Component {
         const note = {
             title: this.state.title,
             body: this.state.body,
-            time: Date(),
+            time: Date.now(),
             uid: this.props.user.uid
         };
         this.props.saveNote(note);
@@ -44,13 +46,16 @@ class App extends Component {
         });
     }
 
-    // render notes
-    renderNotes() {
+    renderTime() {
         //[{note1}, {note2}]
         console.log('here', this.props.notes)
-        let notes = []
-
+    
+        let notes = [];
+        
         let keys = Object.keys(this.props.notes)
+    
+        console.log(keys);
+    
         for (let i of keys) {
             console.log(typeof this.props.notes[i].time)
             let aNote = this.props.notes[i]
@@ -59,14 +64,14 @@ class App extends Component {
         }
         
         notes.map((note) => {
-
+    
             note.jsTime = moment(note.time).toDate()
-
+    
         })
         console.log(typeof notes[0].jsTime);
         console.log(notes[0].jsTime)
         notes.sort((a, b) => {
-
+    
             if (a.jsTime < b.jsTime)
                 return 1
             if (a.jsTime > b.jsTime)
@@ -75,24 +80,38 @@ class App extends Component {
         console.log(notes);
         return _.map(notes, (note) => {
             return (
-                <NoteCard key={note.key}>
-                    <Link to={`/${note.key}`}>
+                
+                     <span className="pull-right">Created: {moment(note.time).format('MMMM Do YYYY, h:mm:ss a')}</span>
+
+            );
+        });
+    }
+    
+
+    renderNotes() {
+        return _.map(this.props.notes, (note, key) => {
+
+            return (
+                <NoteCard key={key}>
+                    <Link to={`/${key}`}>
                         <h2>{note.title}</h2>
                     </Link>
                     <p>{note.body}</p>
                     {note.uid === this.props.user.uid && (
                         <div>
-                            <button className="btn btn-delete btn-xs pull-right" onClick={() => this.props.deleteNote(note.key)}>
+                            <button className="btn btn-danger btn-xs pull-right" onClick={() => this.props.deleteNote(key)}>
                                 Delete
                             </button>
-                            <button className="btn btn-update btn-xs pull-right">
-                                <Link to={`/${note.key}/edit`}>Update</Link>
+                            <button className="btn btn-info btn-xs pull-right">
+                                <Link to={`/${key}/edit`}>Update</Link>
                             </button>
-                        </div>
-                    )}
-                    <br />
-                    <br />
-                     <span className="pull-right">Created: {moment(note.time).format('MMMM Do YYYY, h:mm:ss a')}</span>
+                            </div>
+                            )}
+                            <br/>
+                            <br/>
+                            <span className="pull-right">{moment(note.time).format('MMMM Do YYYY, h:mm:ss a')}</span>
+
+                        
                 </NoteCard>
             );
         });
@@ -119,8 +138,6 @@ class App extends Component {
             greeting = "Good Evening!";
             customStyle.color = "darkblue";
         }
-
-        console.log('here', greeting, customStyle, currentTime)
         return (
             //User Profile
             <div className="container-fluid">
