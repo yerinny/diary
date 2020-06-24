@@ -5,7 +5,7 @@
 
 .jumbotron {
   border-radius: 2px !important;
-  padding: 5px;
+  padding: 20px !important;
   border: 1px solid black;
   background-color: white;
   margin-left: 25px;
@@ -77,8 +77,8 @@ img {
   }
 
   .jumbotron {
-    margin: 0px;
+    padding: 0px;
     margin-bottom: 2vh;
-    margin-left: 10vw;
+    margin-left: 16vw;
   }
 }
