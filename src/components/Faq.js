@@ -87,6 +87,7 @@ class Faq extends Component {
             </div>
         </div>
         
+        
         <div className="faqHeader">Users</div>
         <div className="panel panel-default">
             <div className="panel-heading">
@@ -110,6 +111,7 @@ class Faq extends Component {
                 <div className="panel-body">
                     At the current status, yes. It will be maintained and updated as needed.
                 </div>
+                
             </div>
         </div>
     </div>
