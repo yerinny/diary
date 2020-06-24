@@ -6,7 +6,6 @@ import NoteCard from './NoteCard';
 import { getUser } from '../actions/userAction';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { database } from '../firebase';
 
 
 class App extends Component {
@@ -46,47 +45,6 @@ class App extends Component {
         });
     }
 
-    renderTime() {
-        //[{note1}, {note2}]
-        console.log('here', this.props.notes)
-    
-        let notes = [];
-        
-        let keys = Object.keys(this.props.notes)
-    
-        console.log(keys);
-    
-        for (let i of keys) {
-            console.log(typeof this.props.notes[i].time)
-            let aNote = this.props.notes[i]
-            aNote.key = i
-            notes.push(aNote)
-        }
-        
-        notes.map((note) => {
-    
-            note.jsTime = moment(note.time).toDate()
-    
-        })
-        console.log(typeof notes[0].jsTime);
-        console.log(notes[0].jsTime)
-        notes.sort((a, b) => {
-    
-            if (a.jsTime < b.jsTime)
-                return 1
-            if (a.jsTime > b.jsTime)
-                return -1
-        })
-        console.log(notes);
-        return _.map(notes, (note) => {
-            return (
-                
-                     <span className="pull-right">Created: {moment(note.time).format('MMMM Do YYYY, h:mm:ss a')}</span>
-
-            );
-        });
-    }
-    
 
     renderNotes() {
         return _.map(this.props.notes, (note, key) => {
@@ -181,7 +139,7 @@ class App extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="col-sm-6" >
+                    <div className="col-sm-4" >
                         {this.renderNotes()}
                     </div>
                 </div>
