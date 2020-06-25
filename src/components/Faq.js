@@ -14,7 +14,7 @@ class Faq extends Component {
         This is FAQ page. If you cannot find an answer to your question, make sure to contact us at <strong>yerinlee90@gmail.com</strong>
     </div>
 
-    <Link to="/login"> &#171; Back</Link>
+    <Link className="back" to="/login"> &#171; Back</Link>
     <div className="panel-group" id="accordion">
         <div className="faqHeader">General questions</div>
         <div className="panel panel-default">
