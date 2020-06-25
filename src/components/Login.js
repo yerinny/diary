@@ -54,10 +54,10 @@ class Login extends Component {
                             </div>
                             <br />
                             <div>
-                                There is no sign-up, simply log-in with your exisiting account like Google, Twitter, or Facebook! Simple as just a click.
+                                There is no sign-up, simply login with your exisiting account like Google, Twitter, or Facebook! Simple as just a click.
                             </div>
                         </div>
-
+                        <br/>
                         <Link to="/faq">FAQ</Link>
                         
                 </div>
