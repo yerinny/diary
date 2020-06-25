@@ -3,6 +3,10 @@
   
 }
 
+.title {
+  color: grey;
+}
+
 .jumbotron {
   border-radius: 2px !important;
   padding: 20px !important;
