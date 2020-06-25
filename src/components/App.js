@@ -51,7 +51,7 @@ class App extends Component {
 
             return (
                 <NoteCard key={key}>
-                    <Link to={`/${key}`}>
+                    <Link className="title" to={`/${key}`}>
                         <h2>{note.title}</h2>
                     </Link>
                     <p>{note.body}</p>
