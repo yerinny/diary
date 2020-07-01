@@ -141,6 +141,7 @@ class App extends Component {
                         </form>
                     </div>
                     <div className="col-sm-6" >
+                        <h1 className="boardTitle">Idea Board</h1>
                         {this.renderNotes()}
                     </div>
                 </div>
