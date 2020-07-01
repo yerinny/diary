@@ -52,9 +52,9 @@ class App extends Component {
             return (
                 <NoteCard key={key}>
                     <Link className="title" to={`/${key}`}>
-                        <h2>{note.title}</h2>
+                        <h2>{note.title.substring(0,10)}</h2>
                     </Link>
-                    <p>{note.body}</p>
+                    <p>{note.body.substring(0,16)}</p>
                     {note.uid === this.props.user.uid && (
                         <div>
                             <button className="btn btn-danger btn-xs pull-right" onClick={() => this.props.deleteNote(key)}>
@@ -107,8 +107,9 @@ class App extends Component {
                         <h4 style={customStyle}>{greeting}</h4>
                         <h4>{this.props.user.displayName}</h4>
                         <h5>
-                            TIP! Click on the title to post comments.
+                            TIP ! Click on the title to post comments.
                         </h5>
+                        <Link className="faqMain" to="/faq">FAQ</Link>
                     </div>
                     <div className="col-sm-2 formInfo">
                         <form onSubmit={this.handleSubmit}>
@@ -130,7 +131,7 @@ class App extends Component {
                                     type="text"
                                     name="body"
                                     className="form-control no-border"
-                                    placeholder="Post your thoughts here..."
+                                    placeholder="Post your ideas here..."
                                     required
                                 />
                             </div>
@@ -139,7 +140,7 @@ class App extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="col-sm-4" >
+                    <div className="col-sm-6" >
                         {this.renderNotes()}
                     </div>
                 </div>
